@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Vue Basic Data Binding</title>
+        
+        <style type="text/css">
+        </style>
+    </head>
+
+    <body>
+        <div id="root">
+            <h1>
+                {{ reversedMessage }}
+            </h1>
+
+            <h2>
+                Incomplete Tasks using v-if attribute;
+            </h2>
+            <ul>
+                <li v-for="task in tasks" v-if="!task.completed" v-text="task.description"></li>
+            </ul>
+
+            <h2>
+                Incomplete Tasks using computed filter;
+            </h2>
+            <ul>
+                <li v-for="task in incompleteTasks" v-text="task.description"></li>
+            </ul>
+        </div>
+        
+        <script src="https://unpkg.com/vue@2.6.3/dist/vue.js"></script>
+
+        <script>
+            var app = new Vue({
+                el: '#root',
+
+                data: {
+                    message: 'Vue',
+
+                    tasks: [
+                        {description: 'Go to the store', completed: true},
+                        {description: 'Finish screencast', completed: false},
+                        {description: 'Drive back home', completed: true},
+                    ]
+                },
+
+                computed: {
+                    reversedMessage() {
+                        return this.message.split('').reverse().join('');
+                    },
+                    incompleteTasks() {
+                        return this.tasks.filter(task => !task.completed);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
+
