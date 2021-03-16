@@ -1,28 +1,37 @@
-<template>
+  <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <message>Hello There</message>
+    <message>Hello There</message>
+    <message
+      ><template>Hello There</template>
+      <counter></counter>
+    </message>
+    <message>
+      <ajax-axios-request></ajax-axios-request>
+    </message>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+/* import HelloWorld from './components/HelloWorld.vue' */
+import Message from "./components/Message";
+import Counter from "./components/Counter";
+import AjaxAxiosRequest from "./components/AjaxAxiosRequest.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Message,
+    Counter,
+    AjaxAxiosRequest,
+  },
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
